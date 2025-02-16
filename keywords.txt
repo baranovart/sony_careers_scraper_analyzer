@@ -1,0 +1,13 @@
+
+*************************REPLACE CONTENTS OF THIS FILE WITH ROLE TITLES SEPARATED BY COMAS********************************
+
+
+**** author used this prompt to come up with keyword list relevant to them ***********
+
+ Act as a skilled technical recruiter. Your task is to prepare a comprehensive keyword set of possible permutations of mid to senior-level IT role names related to the following areas: data analysis, data governance and management, marketing technology (MarTech) implementation and use, marketing campaign management, and project management.
+
+Ensure your response includes various synonyms and alternative titles for each role, considering different industry conventions and company-specific naming practices.  List the keywords clearly and concisely, focusing only on role names and avoiding job descriptions or other details.  Format your response for easy readability, using a structured format such as a bulleted or numbered list.  Aim for a comprehensive list that covers a wide range of potential job titles a candidate might use when searching for relevant positions. 
+
+output the list in .csv file
+
+*************************REPLACE CONTENTS OF THIS FILE WITH ROLE TITLES SEPARATED BY COMAS********************************
