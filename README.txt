@@ -11,7 +11,7 @@ Filters jobs based on a provided list of keywords.
 Saves job descriptions in text files.
 
 Compares a resume against job descriptions for relevance scoring. 
-Create keywords.txt as a comma separated list of keywords. Sample promt for keyword generation provided in sample keywords.txt file
+Create keywords.txt as a comma separated list of keywords. One keyword per line, no comas. ß
 Create .txt version of your resume
 
 Requirements
