@@ -29,17 +29,30 @@ def scrape_adobe_careers(page_num, all_jobs):
         job_postings = soup.find_all("tr",
                                      attrs={"data-ph-id": re.compile(r"^ph-page-element-page\d+")})
 
+        if not job_postings:
+            print(f"Warning: No job postings found on page {page_num}. Check the HTML structure.")
+
         for job_posting in job_postings:
-            location = job_posting.find("td",
-                                       attrs={"data-ph-at-job-location-text": True}).text.strip()
+            location_element = job_posting.find("td", attrs={"data-ph-at-job-location-text": True})
+            if not location_element:
+                print("Warning: Location element not found in job posting. Skipping...")
+                continue
+            location = location_element.text.strip()
+
             if "United States" in location or "US" in location:
-                role = job_posting.find("a",
-                                        attrs={"data-ph-at-job-title-text": True}).text.strip()
-                role_url = "https://careers.adobe.com" + job_posting.find("a",
-                                                                         attrs={
-                                                                             "data-ph-at-job-title-text": True
-                                                                         })['href']
+                role_element = job_posting.find("a", attrs={"data-ph-at-job-title-text": True})
+                if not role_element:
+                    print("Warning: Role element not found in job posting. Skipping...")
+                    continue
+                role = role_element.text.strip()
+                role_url = "https://careers.adobe.com" + role_element['href']
                 req_id = job_posting["data-ph-id"].split('-')[-1]
+
+                print(f"Role: {role}")
+                print(f"URL: {role_url}")
+                print(f"Req ID: {req_id}")
+                print(f"Location: {location}")
+                print("-" * 20)  # Separator between job postings
 
                 all_jobs.append({
                     "role": role,
@@ -47,6 +60,7 @@ def scrape_adobe_careers(page_num, all_jobs):
                     "req_id": req_id,
                     "location": location
                 })
+
     except requests.exceptions.RequestException as e:
         print(f"Error fetching URL: {e}")
 
