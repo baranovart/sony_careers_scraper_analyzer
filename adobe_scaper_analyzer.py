@@ -68,7 +68,7 @@ def filter_jobs_by_keywords(all_jobs, keywords_file):
         print("Keywords file not found.")
         return
 
-    filtered_jobs =
+    filtered_jobs = [] 
     for job in all_jobs:
         role_lower = job["role"].lower()
 
@@ -138,7 +138,7 @@ def analyze_resume(resume_file, job_descriptions_dir):
     stop_words = set(stopwords.words("english"))
     stemmer = PorterStemmer()
 
-    matches =
+    matches = []
     for filename in os.listdir(job_descriptions_dir):
         if filename.endswith(".txt"):
             job_desc_path = os.path.join(job_descriptions_dir, filename)
