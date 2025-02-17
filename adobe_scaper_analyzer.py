@@ -1,152 +1,122 @@
 import csv
-import os
-import re
-import time
-import random
+import asyncio
+import re  # Import the re module
 from typing import List, Dict
 
-import requests
+from pyppeteer import launch
 from bs4 import BeautifulSoup
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 import nltk
 
-nltk.download('stopwords')
+def setup_nltk():
+    """Setup NLTK by downloading required data."""
+    try:
+        print("Starting NLTK setup...")
+        nltk.download('stopwords', quiet=True)
+        print("NLTK setup completed successfully")
+    except Exception as e:
+        print(f"Error during NLTK setup: {e}")
 
-# List of common user agents
-USER_AGENTS = [
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0',
-    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15',
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59',
-    'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-]
-
-def get_random_user_agent() -> str:
-    """Returns a random user agent from the list of common user agents."""
-    return random.choice(USER_AGENTS)
-
-def get_working_dir():
-    """Returns the absolute path of the script's working directory."""
-    return os.path.abspath(os.path.dirname(__file__))
-
-def scrape_adobe_careers(page_num: int, all_jobs: List[Dict]) -> None:
+async def scrape_page(page_num: int, all_jobs: List[Dict]) -> None:
     """
-    Scrapes job postings from Adobe's career site with improved selector handling.
-    
+    Scrapes job postings from Adobe's careers page using Puppeteer.
+
     Args:
         page_num: Page number to scrape
         all_jobs: List to store found jobs
     """
-    base_url = f"https://careers.adobe.com/us/en/search-results?from={page_num}&s=1"
-    headers = {
-        'User-Agent': get_random_user_agent(),
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-        'Accept-Language': 'en-US,en;q=0.5',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'DNT': '1',
-        'Connection': 'keep-alive',
-        'Upgrade-Insecure-Requests': '1',
-        'Sec-Fetch-Dest': 'document',
-        'Sec-Fetch-Mode': 'navigate',
-        'Sec-Fetch-Site': 'none',
-        'Sec-Fetch-User': '?1',
-        'Cache-Control': 'max-age=0'
-    }
-
+    print(f"\nStarting to scrape page {page_num}...")
     try:
-        # Add a small random delay to avoid rate limiting
-        time.sleep(random.uniform(1, 3))
-        
-        response = requests.get(base_url, headers=headers)
-        response.raise_for_status()
-        soup = BeautifulSoup(response.content, "html.parser")
+        browser = await launch(options={'timeout': 120000})  # Increased timeout to 120 seconds
+        page = await browser.newPage()
+        await page.goto(f'https://careers.adobe.com/us/en/search-results?offset={page_num}', timeout=120000)
 
-        # Rest of the scraping logic remains the same...
-        job_postings = soup.select("table.table-hover tbody tr") or \
-                      soup.select("[data-ph-at-id^='job-']") or \
-                      soup.select(".job-search-result") or \
-                      soup.select("[data-ph-at-data-row]")
+        # Wait for the page to load completely
+        await page.waitForSelector('.jobs-list-item', timeout=120000)
+        html = await page.content()
+        # Close all pages before closing the browser
+        await asyncio.gather(*[page.close() for page in await browser.pages()])
+        await browser.close()
 
-        if not job_postings:
-            print(f"Warning: No job postings found on page {page_num}. Check the HTML structure.")
-            return
+        soup = BeautifulSoup(html, 'html.parser')
+        jobs = soup.find_all('li', class_='jobs-list-item')
 
-        for job_posting in job_postings:
-            # Try multiple possible selectors for each field
-            location = None
-            location_selectors = [
-                ("td[data-ph-at-job-location-text]", "text"),
-                (".job-location", "text"),
-                ("[data-ph-at-job-location]", "text"),
-                ("[data-ph-job-location]", "attr:data-ph-job-location")
-            ]
-            
-            for selector, extract_type in location_selectors:
-                location_element = job_posting.select_one(selector)
-                if location_element:
-                    location = location_element.get_text(strip=True) if extract_type == "text" \
-                              else location_element.get(extract_type.split(':')[1])
-                    break
+        print(f"Found {len(jobs)} jobs on page {page_num}")
 
-            if not location:
-                print("Warning: Location not found in job posting. Skipping...")
+        for job in jobs:
+            try:
+                # Extract relevant job information
+                role_elem = job.find('a', {'data-ph-id': re.compile(r'ph-page-element-page15-iK3vh8')})
+                role = role_elem.find('div', class_='job-title').text.strip() if role_elem else None
+                role_url = role_elem['href'] if role_elem else None
+
+                req_id_elem = job.find('a', {'data-ph-id': re.compile(r'ph-page-element-page15-iK3vh8')})
+                req_id = req_id_elem['data-ph-at-job-id-text'] if req_id_elem else None
+
+                location_elem = job.find('span', {'data-ph-id': re.compile(r'ph-page-element-page15-4l6vaX')})
+                if location_elem:
+                        location_value_elem = location_elem.find('span', class_='job-location')
+                        if location_value_elem:
+                            location = location_value_elem.text.strip()
+                            # Trim "Location" and extra whitespace
+                            location = location.replace("Location", "").strip()
+                        else:
+                            location = None
+                else:
+                        location = None
+
+                if role and role_url and req_id and location and "United States" in location:
+                    print(f"\nFound matching job:")
+                    print(f"Role: {role}")
+                    print(f"Location: {location}")
+                    print(f"Req ID: {req_id}")
+                    print(f"URL: {role_url}")
+
+                    all_jobs.append({
+                        "role": role,
+                        "role_url": role_url,
+                        "req_id": req_id,
+                        "location": location
+                    })
+
+            except Exception as e:
+                print(f"Error processing job data: {e}")
                 continue
 
-            if "United States" in location or "US" in location:
-                # Try multiple possible selectors for job title
-                role = None
-                role_url = None
-                title_selectors = [
-                    ("a[data-ph-at-job-title-text]", "text"),
-                    (".job-title a", "text"),
-                    ("[data-ph-at-job-title]", "text")
-                ]
-                
-                for selector, extract_type in title_selectors:
-                    title_element = job_posting.select_one(selector)
-                    if title_element:
-                        role = title_element.get_text(strip=True)
-                        role_url = "https://careers.adobe.com" + title_element.get('href', '')
-                        break
+        print(f"Successfully processed page {page_num}")
+    except Exception as e:
+        print(f"Error scraping page {page_num}: {e}")
 
-                if not role or not role_url:
-                    print("Warning: Role or URL not found in job posting. Skipping...")
-                    continue
+def main():
+    """
+    Main function to execute the scraping and analysis process.
+    """
+    print("Starting the scraping process...")
+    setup_nltk()
 
-                # Try multiple possible selectors for req ID
-                req_id = None
-                req_id_selectors = [
-                    ("[data-ph-id]", "attr:data-ph-id"),
-                    ("[data-ph-at-job-id]", "text"),
-                    (".job-id", "text")
-                ]
-                
-                for selector, extract_type in req_id_selectors:
-                    req_id_element = job_posting.select_one(selector)
-                    if req_id_element:
-                        req_id = req_id_element.get(extract_type.split(':')[1]) if 'attr:' in extract_type \
-                                else req_id_element.get_text(strip=True)
-                        req_id = req_id.split('-')[-1] if '-' in req_id else req_id
-                        break
+    print("Initializing job list...")
+    all_jobs = []
 
-                if not req_id:
-                    print("Warning: Req ID not found in job posting. Skipping...")
-                    continue
+    print("Beginning to scrape pages...")
+    loop = asyncio.get_event_loop()
+    tasks = [scrape_page(page_num, all_jobs) for page_num in range(0, 60, 10)]
+    loop.run_until_complete(asyncio.gather(*tasks))
 
-                print(f"Role: {role}")
-                print(f"URL: {role_url}")
-                print(f"Req ID: {req_id}")
-                print(f"Location: {location}")
-                print("-" * 20)
+    print(f"\nScraping completed. Found {len(all_jobs)} total jobs")
 
-                all_jobs.append({
-                    "role": role,
-                    "role_url": role_url,
-                    "req_id": req_id,
-                    "location": location
-                })
+    if all_jobs:
+        output_file = "adobe_jobs.csv"
+        try:
+            with open(output_file, 'w', newline='', encoding='utf-8') as f:
+                writer = csv.DictWriter(f, fieldnames=["role", "role_url", "req_id", "location"])
+                writer.writeheader()
+                writer.writerows(all_jobs)
+            print(f"\nResults saved to {output_file}")
+        except Exception as e:
+            print(f"Error saving results: {e}")
+    else:
+        print("No jobs were found to save")
 
-    except requests.exceptions.RequestException as e:
-        print(f"Error fetching URL: {e}")
-        print(f"Failed URL: {base_url}")
+if __name__ == "__main__":
+    main()
