@@ -172,7 +172,7 @@ def main():
     """
     #... (rest of the main function remains the same)
     print("Scraping jobs...")
-    all_jobs =
+    all_jobs = []
     for page_num in range(0, 60, 10):  # Pages 1-5
         scrape_adobe_careers(page_num, all_jobs)
     print(f"Found {len(all_jobs)} total jobs")

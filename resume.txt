@@ -1,1 +1,54 @@
-the author is unskilled and unemployed
+Artem (Art) Baranov
+Marketing Operations Manager
+baranovart@gmail.com • 6502964222
+https://www.linkedin.com/in/baranovart/ Brentwood, CA
+Innovative and dedicated with a proven record in leading marketing operations for 10+ years. Skilled in the development and application of machine learning and automation for data-driven decision-making. Expert in managing integrations, developing productivity tools, and providing scalable solutions to enhance marketing channels. Adept at facilitating tools and solutions design, managing digital marketing platforms, and providing seamless data flows, campaign operations, and reporting. Well-versed in end-to-end campaign execution, campaign optimization, audience segmentation, ROI analysis, and testing. 
+Areas of Expertise
+ ●    Eloqua/Responsys, AJO/Marketo
+ ●    Data Analysis
+ ●    B2B Marketing / Sales Enablement
+ ●    Stakeholder Management
+ ●    Vendor Management
+ ●    Email Marketing Strategy
+ ●    Performance Reporting
+ ●    Campaign Management
+ ●    Project Management
+Professional Experience
+LinkedIn Corp, Mountain View, CA
+Sr. Program Manager | Global Marketing Operations | MarTech Team
+Nov 2018 — May 2024
+Developed cross-functional relationships to align project goals and timelines. Developed and executed comprehensive project plans to support global marketing campaigns. Oversaw budget allocation and resource management for MarTech projects. Conducted regular status updates and progress reports for executive stakeholders. Monitored key performance indicators to measure the success of MarTech initiatives.
+Directed the execution of high-volume, multi-channel campaigns, ensuring the seamless delivery of ~300 initiatives and over 400 million customer touchpoints weekly. Played a pivotal role in optimizing operational workflows and bridging cross-functional efforts to achieve organizational success.
+Championed a 40-hour weekly reduction in manual processes for over 20 team members through automated systems.
+Orchestrated the integration of external email platforms such as Responsys/Eloqua and AJO/Marketo with internal systems, streamlining campaign operation workflows.
+Designed and implemented full-stack email marketing solutions tailored to enterprise scale, overseeing the complete suite as product owner for 200+ MarTech team members, impacting 1Bn LinkedIn users.
+Program Manager | Global Marketing Operations | Targeting Team
+Mar 2016 — Nov 2018
+Strategized, designed, and executed marketing programs. Managed both domestic and international marketing projects. Collaborated with Product and Data Science departments, fostering strong relationships. Led program analytics, providing insights. Created and presented regular performance reports to senior management. Conceptualized innovative marketing strategies, consistently meeting market trends and customer needs.
+Designed and led the development of an innovative algorithm that accurately assessed marketing audiences and their likelihood to respond to specific offers, notably enhancing marketing strategy efficiency.
+Directed audience segmentation initiatives across marketing channels, instrumental in targeting efforts and campaign relevance.
+Campaign Manager | Global Marketing Operations
+Feb 2013 — Mar 2016
+Managed comprehensive end-to-end email marketing programs. Orchestrated data mining projects and advanced audience segmentation modeling to refine targeting and elevate campaign effectiveness. Customized HTML email templates with responsive CSS for optimized individual user engagement. Developed innovative strategies to boost brand recognition and market presence. Ensured compliance with international legal requirements and industry standards. Contributed to creative brainstorming sessions, lending unique perspectives.
+Identified and implemented best practices from MVT and A/B testing, significantly increasing the conversion rate for target audience by 9%.
+Boosted other key engagement metrics by 30%, reflecting the impact of innovative email campaign strategies.
+Additional Experience
+Marketing Manager, Electronic Arts Inc, Redwood Shores, CA
+Email Marketing Manager, Playdom Social Games, Palo Alto, CA
+Sr. Digital Marketing Analyst, Adchemy Inc, Foster City, CA
+Marketing Associate, Quinstreet, Foster City, CA
+Campaign Analyst, Etology, Foster City, CA
+Education
+B.S. Business Administration, Marketing Concentration
+San Francisco State University, San Francisco
+Licenses & Certifications
+Google Project Management, Google on Coursera, 2024
+BI with SQL, ETL and Data Warehousing, IBM on Coursera, 2025
+
+
+
+Technical Skills
+Marketo/AJO | Eloqua/Responsys | HTML/CSS | ETL | SQL/Hive |  Bash/Python | Jira | Wrike | Confluence | Hadoop | Kafka |  Airflow | Azkaban | SFDC | Teams/Slack | Scrum/Agile | IBM Cognos | Google Looker
+
+
+

@@ -1,13 +1,62 @@
-
-*************************REPLACE CONTENTS OF THIS FILE WITH ROLE TITLES SEPARATED BY COMAS********************************
-
-
-**** author used this prompt to come up with keyword list relevant to them ***********
-
- Act as a skilled technical recruiter. Your task is to prepare a comprehensive keyword set of possible permutations of mid to senior-level IT role names related to the following areas: data analysis, data governance and management, marketing technology (MarTech) implementation and use, marketing campaign management, and project management.
-
-Ensure your response includes various synonyms and alternative titles for each role, considering different industry conventions and company-specific naming practices.  List the keywords clearly and concisely, focusing only on role names and avoiding job descriptions or other details.  Format your response for easy readability, using a structured format such as a bulleted or numbered list.  Aim for a comprehensive list that covers a wide range of potential job titles a candidate might use when searching for relevant positions. 
-
-output the list in .csv file
-
-*************************REPLACE CONTENTS OF THIS FILE WITH ROLE TITLES SEPARATED BY COMAS********************************
+Job Title
+Data Analyst
+Business Intelligence Analyst
+Analytics Specialist
+Data Science Analyst
+Insights Analyst
+Quantitative Analyst
+Business Analytics Manager
+Data Analytics Lead
+Senior Data Analyst
+Principal Data Analyst
+Analytics Consultant
+Business Data Analyst
+Marketing Analytics Specialist
+Data Governance Manager
+Data Quality Manager
+Data Steward
+Data Management Specialist
+Information Governance Lead
+Data Governance Architect
+Master Data Manager
+Data Control Specialist
+Data Compliance Manager
+Enterprise Data Manager
+Data Operations Manager
+Information Management Lead
+Marketing Technology Manager
+MarTech Solutions Architect
+Marketing Systems Manager
+Digital Marketing Technologist
+Marketing Operations Specialist
+Marketing Automation Manager
+Marketing Stack Administrator
+MarTech Integration Specialist
+Marketing Platform Manager
+Marketing Technology Architect
+CRM Technology Manager
+Marketing Systems Analyst
+Campaign Operations Manager
+Digital Campaign Manager
+Marketing Campaign Specialist
+Multi-Channel Campaign Manager
+Campaign Analytics Manager
+Marketing Program Manager
+Campaign Strategy Manager
+Marketing Operations Lead
+Campaign Optimization Specialist
+Integrated Marketing Manager
+Performance Marketing Manager
+Growth Marketing Manager
+Digital Project Manager
+Technical Project Manager
+IT Project Lead
+Agile Project Manager
+Technology Program Manager
+Digital Program Manager
+Project Management Lead
+Scrum Master
+IT Project Coordinator
+Implementation Project Manager
+Technology Project Director
+Digital Delivery Manager
