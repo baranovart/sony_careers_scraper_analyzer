@@ -1,6 +1,6 @@
-Sony Scraper Analyzer
+Sony and Adobe Scraper Analyzer
 
-This script scrapes job postings from Sony Interactive Entertainment's Greenhouse job board, filters them based on keywords, downloads job descriptions, and analyzes how well a resume matches the scraped jobs.
+This script scrapes job posting role names from PSN's Greenhouse and Adobe job boards, filters them based on keywords, downloads job descriptions, and analyzes how well a resume matches the scraped jobs.
 
 Features
 
@@ -11,10 +11,8 @@ Filters jobs based on a provided list of keywords.
 Saves job descriptions in text files.
 
 Compares a resume against job descriptions for relevance scoring. 
-Create keywords.txt as a comma separated list of keywords. One keyword per line, no comas. ß
-Create .txt version of your resume
+Create keywords.txt as a comma separated list of keywords. One keyword per line, no comas. 
 
-Requirements
 
 Python 3.7+
 
@@ -34,7 +32,8 @@ Usage
 
 Run the script using:
 
-python scraper_analyzer_update.py -r resume.txt -k keywords.txt
+python3 psn_scraper_analyzer.py -r resume.txt -k keywords.txt
+python3 adobe_scraper_analyzer.py -r resume.txt -k keywords.txt
 
 -r / --resume (Required): Path to the resume text file.
 
@@ -50,7 +49,7 @@ The script prints job match scores for the resume.
 
 Notes
 
-Ensure keywords.txt contains comma-separated keywords.
+Ensure keywords.txt contains one role name per line
 
 NLTK stopwords are downloaded automatically.
 
