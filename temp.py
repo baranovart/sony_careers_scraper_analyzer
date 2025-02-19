@@ -151,7 +151,7 @@ async def match_jobs_to_resume(all_jobs, resume_text):
     Returns:
         list: List of dictionaries containing job data and match scores.
     """
-    matched_jobs = []
+    matched_jobs =
     for job in all_jobs:
         job_description = await scrape_job_description(job)
         if job_description:
@@ -181,11 +181,11 @@ def main():
         return
 
     print("Initializing job list...")
-    all_jobs = []
+    all_jobs =
 
     print("Beginning to scrape pages...")
     loop = asyncio.get_event_loop()
-    tasks = [scrape_page(page_num, all_jobs, keywords) for page_num in range(0, 100, 10)]
+    tasks = [scrape_page(page_num, all_jobs, keywords) for page_num in range(0, 60, 10)]
     loop.run_until_complete(asyncio.gather(*tasks))
 
     print(f"\nScraping completed. Found {len(all_jobs)} total jobs")

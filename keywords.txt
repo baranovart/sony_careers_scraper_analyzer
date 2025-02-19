@@ -1,4 +1,3 @@
-Job Title
 Data Analyst
 Business Intelligence Analyst
 Analytics Specialist
@@ -61,3 +60,160 @@ Implementation Project Manager
 Technology Project Director
 Digital Delivery Manager
 Research engineer
+Marketing Operations
+Omni-channel Marketing
+B2B Marketing
+Digital Marketing
+Campaign Management
+Performance Reporting
+Audience Segmentation
+Campaign Optimization
+ROI Analysis
+Stakeholder Management
+Vendor Management
+Sales Enablement
+Email Marketing
+Cross-functional Collaboration
+Agile Project Management
+Program Management
+Scrum
+Product Ownership
+Budget Allocation
+Workflow Optimization
+Resource Management
+Process Automation
+Marketing Technology (MarTech)
+Eloqua
+Responsys
+Marketo
+Adobe Journey Optimizer (AJO)
+Salesforce Marketing Cloud (SFMC)
+CRM Integration
+Data Flow Automation
+Multi-channel Campaign Execution
+Data Analysis
+Data Insights
+Business Intelligence (BI)
+SQL
+ETL
+Hive
+Audience Targeting
+Machine Learning
+Predictive Analytics
+A/B Testing
+Multi-Variate Testing (MVT)
+KPI Monitoring
+HTML/CSS
+Bash
+Python
+Jira
+Wrike
+Confluence
+Hadoop
+Kafka
+Airflow
+Azkaban
+IBM Cognos
+Google Looker
+SFDC (Salesforce)
+Teams
+Slack
+Demand Generation
+Growth Marketing
+Lifecycle Marketing
+Lead Nurturing
+Customer Journey Mapping
+Conversion Optimization
+Email Automation
+Agile Methodologies
+Lean Project Management
+Kanban
+Continuous Improvement
+Process Streamlining
+Change Management
+Sprint Planning
+CDP (Customer Data Platform)
+Marketing Automation Platforms
+API Integration
+Data Orchestration
+Email Deliverability
+CRM Workflows
+Data Pipelines
+Business Analytics
+Marketing Data Science
+Data Engineering
+Data Visualization
+Customer Segmentation
+Performance Metrics
+Data-driven Decision Making
+Attribution Modeling
+Python Scripting
+SQL Querying
+Data ETL Pipelines
+Cloud Data Engineering
+BI Reporting
+Dashboarding
+Martech Stack Management
+Marketing Data Engineer
+Data Engineer
+Marketing Analytics Engineer
+Marketing Data Architect
+Marketing ETL Developer
+Marketing Data Integration Specialist
+Marketing Data Analyst
+Marketing Analytics Specialist
+Marketing Insights Analyst
+Marketing Performance Analyst
+Marketing Data Scientist
+Marketing Data Specialist
+Marketing Analyst
+Growth Marketing Analyst
+Digital Marketing Analyst
+Campaign Analyst
+Web Analyst
+Marketing Operations Manager
+Marketing Automation Manager
+Marketing Technology Manager
+MarTech Manager
+Digital Marketing Manager
+Marketing Operations Specialist
+Marketing Automation Specialist
+Marketing Technology Specialist
+Marketing Operations Analyst
+Campaign Manager
+Digital Campaign Manager
+Email Marketing Manager
+CRM Marketing Manager
+Demand Generation Manager
+Lead Nurturing Manager
+Campaign Marketing Specialist
+Digital Marketing Specialist
+Email Marketing Specialist
+CRM Marketing Specialist
+Demand Generation Specialist
+Lead Nurturing Specialist
+Marketing Automation Developer
+Marketing Automation Architect
+Marketing Automation Engineer
+Marketing Automation Consultant
+BI Developer
+BI Analyst
+BI Engineer
+Marketing BI Developer
+Marketing BI Analyst
+Marketing BI Engineer
+Data Scientist
+Marketing Research Scientist
+Marketing AI Specialist
+Marketing Machine Learning Engineer
+CDP Specialist
+CDP Engineer
+CDP Architect
+CDP Consultant
+CDP Administrator
+MarTech Consultant
+MarTech Specialist
+MarTech Analyst
+MarTech Strategist
+Marketing Technology Advisor
+Marketing Systems Integrator

@@ -17,3 +17,5 @@ output/
 .DS_Store
 Thumbs.db
 
+#ignore files created with Gooseß
+.goose/

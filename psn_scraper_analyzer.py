@@ -148,7 +148,7 @@ def analyze_resume(resume_file, job_descriptions_dir):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-r", "--resume", required=True, help="Path to the resume file")
+    parser.add_argument("-r", "--resume", default="resume.txt", help="Path to the resume file")
     parser.add_argument("-k", "--keywords", default="keywords.txt", help="Keywords file (one keyword/phrase per line)")
     args = parser.parse_args()
     
