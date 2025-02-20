@@ -19,3 +19,6 @@ Thumbs.db
 
 #ignore files created with Gooseß
 .goose/
+
+#ignore debug-page from drpobox scrape
+debug_page.html
