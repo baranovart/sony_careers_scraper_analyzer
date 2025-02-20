@@ -175,6 +175,7 @@ Marketing Operations Manager
 Marketing Automation Manager
 Marketing Technology Manager
 MarTech Manager
+Marketing Manager
 Digital Marketing Manager
 Marketing Operations Specialist
 Marketing Automation Specialist
@@ -217,3 +218,4 @@ MarTech Analyst
 MarTech Strategist
 Marketing Technology Advisor
 Marketing Systems Integrator
+Senior Product Marketing Manager
