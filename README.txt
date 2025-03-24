@@ -1,4 +1,4 @@
-Sony and Adobe Scraper Analyzer
+Sony, Dropbox and Adobe Scraper Analyzer
 
 This script scrapes job posting role names from PSN's Greenhouse and Adobe job boards, filters them based on keywords, downloads job descriptions, and analyzes how well a resume matches the scraped jobs.
 
